@@ -1,10 +1,16 @@
 import React from 'react';
+import { Button, Container} from 'react-bootstrap'
+import {Link} from "react-router-dom";
 
 const Profile = () => {
     return (
-        <div>
+        <Container>
             <h1>profile</h1>
-        </div>
+            <Link to={'/'}>
+                <Button variant="secondary">홈으로 이동</Button>
+            </Link>
+
+        </Container>
     );
 };
 
