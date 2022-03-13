@@ -26,6 +26,7 @@ const Tv = () => {
                 <Poster
                     title={tv.name}
                     desc={tv.overview}
+                    to={`/tv/${tv.id}`}
                     poster={'https://image.tmdb.org/t/p/w500'+tv.poster_path}
                     key={tv.id}
                 />

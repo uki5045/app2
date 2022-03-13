@@ -12,9 +12,9 @@ const Poster = ({title, desc, poster, to}) => {
                     <Card.Text>
                         {desc.slice(0, 50)} ...
                     </Card.Text>
-                    <a href={to}>
+                    <Link to={to}>
                         <Button variant="primary">자세히 보기</Button>
-                    </a>
+                    </Link>
 
                 </Card.Body>
             </Card>

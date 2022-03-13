@@ -31,6 +31,7 @@ const Home = () => {
                     title={movie.title}
                     desc={movie.overview}
                     poster={'https://image.tmdb.org/t/p/w500'+movie.poster_path}
+                    to={`/movie/${movie.id}`}
                     key={movie.id}
                 />
             ))}
