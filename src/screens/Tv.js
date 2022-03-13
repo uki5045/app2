@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Button, Container, Card, Col, Row} from 'react-bootstrap'
 import axios from "axios";
+import {Poster, Box} from "../components";
 
 const Tv = () => {
 
@@ -20,24 +21,16 @@ const Tv = () => {
     }, [])
 
     return (
-        <Container>
-            <Row>
-                {tvs.map(tv => (
-                    <Col className={'mt-2 m-1'} key={tv.id}>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${tv.poster_path}`} />
-                            <Card.Body>
-                                <Card.Title>{tv.name.slice(0, 15)} ...</Card.Title>
-                                <Card.Text>
-                                    {tv.overview.slice(0, 50)} ...
-                                </Card.Text>
-                                <Button variant="primary">자세히 보기</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
+        <Box title={'TvList'}>
+            {tvs.map(tv => (
+                <Poster
+                    title={tv.name}
+                    desc={tv.overview}
+                    poster={tv.poster_path}
+                    key={tv.id}
+                />
+            ))}
+        </Box>
     );
 };
 

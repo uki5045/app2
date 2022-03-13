@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { Button, Container, Row, Col, Card } from 'react-bootstrap'
 import axios from "axios";
+import {Poster, Box} from "../components";
 
-import {Link} from "react-router-dom";
 
 
 
@@ -25,24 +25,23 @@ const Home = () => {
    }, [])
 
     return (
-        <Container>
-           <Row>
-               {movies.map(movie => (
-                   <Col className={'mt-2 m-1'} key={movie.id}>
-                       <Card style={{ width: '18rem' }}>
-                           <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-                           <Card.Body>
-                               <Card.Title>{movie.title.slice(0, 15)} ...</Card.Title>
-                               <Card.Text>
-                                   {movie.overview.slice(0, 50)} ...
-                               </Card.Text>
-                               <Button variant="primary">자세히 보기</Button>
-                           </Card.Body>
-                       </Card>
-                   </Col>
-               ))}
-           </Row>
-        </Container>
+        <Box title={'Movies'}>
+            {movies.map(movie => (
+                <Poster title={movie.title} desc={movie.overview} poster={movie.poster_path} key={movie.id} />
+            ))}
+        </Box>
+        // <Container>
+        //    <Row>
+        //        {movies.map(movie => (
+        //            <Poster
+        //                key={movie.id}
+        //                title={movie.title}
+        //                desc={movie.overview}
+        //                poster={movie.poster_path}
+        //            />
+        //        ))}
+        //    </Row>
+        // </Container>
     );
 };
 
