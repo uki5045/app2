@@ -27,7 +27,12 @@ const Home = () => {
     return (
         <Box title={'Movies'}>
             {movies.map(movie => (
-                <Poster title={movie.title} desc={movie.overview} poster={movie.poster_path} key={movie.id} />
+                <Poster
+                    title={movie.title}
+                    desc={movie.overview}
+                    poster={'https://image.tmdb.org/t/p/w500'+movie.poster_path}
+                    key={movie.id}
+                />
             ))}
         </Box>
         // <Container>
